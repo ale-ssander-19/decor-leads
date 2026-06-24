@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Formulario de Prospectos - Derco</title>
+    <style>
+        /* Tipografía del sistema y fondo neutral para resaltar el formulario */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f5f7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        /* Contenedor principal estilo "tarjeta" */
+        .derco-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            border-top: 5px solid #CC0000; /* Rojo corporativo Derco */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .derco-card h2 {
+            color: #333333;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        /* Agrupación de cada campo para mejor distribución */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        /* Estilo elegante para las etiquetas */
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estilos consistentes para inputs y selects */
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            color: #333333;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Evita que el padding rompa el ancho del 100% */
+            transition: border-color 0.3s ease;
+            background-color: #fcfcfc;
+        }
+
+        /* Interacción al seleccionar un campo */
+        .form-group input[type="text"]:focus,
+        .form-group select:focus {
+            border-color: #CC0000;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        /* Botón de envío llamativo y corporativo */
+        .submit-btn {
+            width: 100%;
+            background-color: #CC0000; /* Rojo Derco */
+            color: #ffffff;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background-color: #a30000; /* Tono más oscuro al pasar el mouse */
+        }
+
+        /* Estilo para el span del asterisco si es requerido */
+        .assistiveText {
+            color: #CC0000;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="derco-card">
+        <h2>Prospectos DERCO CENTER</h2>
+        
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg8000004qrnV" method="POST">
+
+            <input type="hidden" name="oid" value="00Dg8000004qrnV">
+            <input type="hidden" name="retURL" value="https://www.salesforce.com/">
+
+            <input type="hidden" name="debug" value=1>                             
+            <input type="hidden" name="debugEmail" value="giacomo.zoppi@protiviti.com.pe">    
+
+            <div class="form-group">
+                <label for="first_name">Nombre</label>
+                <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="Ej. Carlos" />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Apellidos</label>
+                <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Ej. Pérez" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" maxlength="80" name="email" type="text" placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input id="phone" maxlength="40" name="phone" type="text" placeholder="+51 999 999 999" />
+            </div>
+
+            <div class="form-group">
+                <label for="company">Compañía</label>
+                <input id="company" maxlength="40" name="company" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="title">Cargo</label>
+                <input id="title" maxlength="40" name="title" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ciudad</label>
+                <input id="city" maxlength="40" name="city" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="state">Estado/Provincia</label>
+                <input id="state" maxlength="20" name="state" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="00Ng800000AlUbB">Producto de interés</label>
+                <select id="00Ng800000AlUbB" name="00Ng800000AlUbB" title="Producto de interés">
+                    <option value="">--Ninguno--</option>
+                    <option value="Por definir">Accesorios y complementos</option>
+                </select>
+            </div>
+
+            <input type="submit" name="submit" value="Enviar Datos" class="submit-btn">
+
+        </form>
+    </div>
+
+</body>
+</html>
