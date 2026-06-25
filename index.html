@@ -1,185 +1,332 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <title>Decor Center</title>
-    <style>
-        /* Tipografía del sistema y fondo neutral para resaltar el formulario */
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f5f7;
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-            margin: 0;
-        }
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decor Center — Contáctanos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Contenedor principal estilo "tarjeta" */
-        .derco-card {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 450px;
-            padding: 30px;
-            border-top: 5px solid #CC0000; /* Rojo corporativo Derco */
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
+    body {
+      background: #f7f5f2;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
 
-        .derco-card h2 {
-            color: #333333;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 22px;
-        }
+    .form-shell {
+      width: 100%;
+      max-width: 560px;
+    }
 
-        /* Agrupación de cada campo para mejor distribución */
-        .form-group {
-            margin-bottom: 18px;
-        }
+    /* ── Header ── */
+    .form-header {
+      margin-bottom: 40px;
+    }
 
-        /* Estilo elegante para las etiquetas */
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            color: #555555;
-            margin-bottom: 6px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .brand-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 26px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #111;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
 
-        /* Estilos consistentes para inputs y selects */
-        .form-group input[type="text"],
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            color: #333333;
-            border: 1px solid #dcdcdc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Evita que el padding rompa el ancho del 100% */
-            transition: border-color 0.3s ease;
-            background-color: #fcfcfc;
-        }
+    .brand-logo span {
+      color: #c0392b;
+      font-weight: 500;
+    }
 
-        /* Interacción al seleccionar un campo */
-        .form-group input[type="text"]:focus,
-        .form-group select:focus {
-            border-color: #CC0000;
-            background-color: #ffffff;
-            outline: none;
-        }
+    .form-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 36px;
+      color: #111;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
 
-        /* Botón de envío llamativo y corporativo */
-        .submit-btn {
-            width: 100%;
-            background-color: #CC0000; /* Rojo Derco */
-            color: #ffffff;
-            padding: 14px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-        }
+    .form-header p {
+      font-size: 13px;
+      color: #888;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
 
-        .submit-btn:hover {
-            background-color: #a30000; /* Tono más oscuro al pasar el mouse */
-        }
+    /* ── Divider ── */
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: #c0392b;
+      margin: 16px 0 0;
+    }
 
-        /* Estilo para el span del asterisco si es requerido */
-        .assistiveText {
-            color: #CC0000;
-            margin-right: 3px;
-        }
-    </style>
+    /* ── Card ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid #e8e4df;
+      padding: 40px 40px 36px;
+      position: relative;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: #c0392b;
+    }
+
+    /* ── Row grid ── */
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── Field ── */
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 22px;
+    }
+
+    .field:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .field label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #111;
+      background: #faf9f7;
+      border: 1px solid #ddd8d2;
+      border-radius: 0;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 88px;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #c0392b;
+      background: #fff;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin: 28px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e8e4df;
+    }
+
+    /* ── Submit ── */
+    .btn-submit {
+      margin-top: 32px;
+      width: 100%;
+      padding: 15px 24px;
+      background: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit:hover {
+      background: #c0392b;
+    }
+
+    .btn-submit:active {
+      background: #a93226;
+    }
+
+    /* ── Footer note ── */
+    .form-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 500px) {
+      .row-2 { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 28px 20px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="derco-card">
-        <h2>DECOR CENTER</h2>
-        
-        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg8000004qrnV" method="POST">
+<div class="form-shell">
 
-            <input type="hidden" name="oid" value="00Dg8000004qrnV">
-            <input type="hidden" name="retURL" value="https://www.salesforce.com/">
+  <div class="form-header">
+    <div class="brand-logo">dec<span>o</span>r center</div>
+    <h2>Cuéntanos sobre<br>tu proyecto</h2>
+    <p>Uno de nuestros asesores se pondrá en contacto contigo.</p>
+    <div class="divider"></div>
+  </div>
 
-            <input type="hidden" name="debug" value=1>                             
-            <input type="hidden" name="debugEmail" value="giacomo.zoppi@protiviti.com.pe">    
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg8000004qrnV" method="POST">
+    <input type="hidden" name="oid" value="00Dg8000004qrnV">
+    <input type="hidden" name="retURL" value="https://www.decorcenter.pe/?srsltid=AfmBOorcBGWHFdUc5VGdLDWNxmbaMsvURSpPDWoEJ75PkT5ptnuGWB5R">
 
-            <div class="form-group">
-                <label for="first_name">Nombre</label>
-                <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="Ej. Carlos" />
-            </div>
+    <div class="form-card">
 
-            <div class="form-group">
-                <label for="last_name">Apellidos</label>
-                <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Ej. Pérez" />
-            </div>
+      <div class="section-label">Tus datos</div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" maxlength="80" name="email" type="text" placeholder="correo@ejemplo.com" />
-            </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="first_name">Nombre</label>
+          <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="María" />
+        </div>
+        <div class="field">
+          <label for="last_name">Apellidos</label>
+          <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="García López" />
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="phone">Teléfono</label>
-                <input id="phone" maxlength="40" name="phone" type="text" placeholder="+51 999 999 999" />
-            </div>
+      <div class="field">
+        <label for="email">Correo electrónico</label>
+        <input id="email" maxlength="80" name="email" type="text" placeholder="maria@ejemplo.com" />
+      </div>
 
-            <div class="form-group">
-                <label for="company">Compañía</label>
-                <input id="company" maxlength="40" name="company" type="text" />
-            </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="company">Compañía</label>
+          <input id="company" maxlength="40" name="company" type="text" placeholder="Opcional" />
+        </div>
+        <div class="field">
+          <label for="city">Ciudad</label>
+          <input id="city" maxlength="40" name="city" type="text" placeholder="Lima" />
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="title">Cargo</label>
-                <input id="title" maxlength="40" name="title" type="text" />
-            </div>
+      <div class="section-label">Tu interés</div>
 
-            <div class="form-group">
-                <label for="city">Ciudad</label>
-                <input id="city" maxlength="40" name="city" type="text" />
-            </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="product">Producto de interés</label>
+          <select id="product" name="00Ng800000AlUbB" title="Producto de interés">
+            <option value="">Seleccionar</option>
+            <option value="Accesorios y complementos">Accesorios y complementos</option>
+            <option value="Pisos">Pisos</option>
+            <option value="Paredes">Paredes</option>
+            <option value="Piscina">Piscina</option>
+            <option value="Piedra sinterizada">Piedra sinterizada</option>
+            <option value="Productos de limpieza">Productos de limpieza</option>
+            <option value="Grifería">Grifería</option>
+            <option value="Tinas">Tinas</option>
+            <option value="Inodoros">Inodoros</option>
+            <option value="Mamparas">Mamparas</option>
+            <option value="Lavatorio">Lavatorio</option>
+            <option value="Espejo">Espejo</option>
+            <option value="Muebles de baño">Muebles de baño</option>
+            <option value="Refrigeración">Refrigeración</option>
+            <option value="Cocina">Cocina</option>
+            <option value="Climatización">Climatización</option>
+            <option value="Electrodomésticos">Electrodomésticos</option>
+            <option value="Lavandería">Lavandería</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="stage">Etapa del proyecto</label>
+          <select id="stage" name="00Ng800000Amu2Y" title="¿En qué etapa se encuentra?">
+            <option value="">Seleccionar</option>
+            <option value="Solo explorando opciones">Explorando opciones</option>
+            <option value="Solicitando cotización">Solicitando cotización</option>
+            <option value="Compra próxima">Compra próxima</option>
+            <option value="Proyecto en ejecución">Proyecto en ejecución</option>
+          </select>
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="state">Estado/Provincia</label>
-                <input id="state" maxlength="20" name="state" type="text" />
-            </div>
+      <div class="field">
+        <label for="date">Fecha estimada de compra</label>
+        <select id="date" name="00Ng800000AnUiL" title="Fecha estimada de compra">
+          <option value="">Seleccionar</option>
+          <option value="Este mes">Este mes</option>
+          <option value="1 a 3 meses">1 a 3 meses</option>
+          <option value="Más de 3 meses">Más de 3 meses</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label for="00Ng800000AlUbB">Producto de interés</label>
-                <select id="00Ng800000AlUbB" name="00Ng800000AlUbB" title="Producto de interés">
-                    <option value="">--Ninguno--</option>
-                    <option value="Accesorios y complementos">Accesorios y complementos</option>
-                    <option value="Pisos">Pisos</option>
-                    <option value="Paredes">Paredes</option>
-                    <option value="Piscina">Piscina</option>
-                    <option value="Piedra sinterizada">Piedra sinterizada</option>
-                    <option value="Productos de limpieza">Productos de limpieza</option>
-                    <option value="Gritería">Gritería</option>
-                    <option value="Tinas">Tinas</option>
-                    <option value="Inodoros">Inodoros</option>
-                    <option value="Mamparas">Mamparas</option>
-                    <option value="Lavatorio">Lavatorio</option>
-                    <option value="Espejo">Espejo</option>
-                    <option value="Muebles de baño">Muebles de baño</option>
-                    <option value="Refrigeración">Refrigeración</option>
-                    <option value="Cocina">Cocina</option>
-                    <option value="Climatización">Climatización</option>
-                    <option value="Electrodomésticos">Electrodomésticos</option>
-                    <option value="Lavandería">Lavandería</option>
-                </select>
-            </div>
+      <div class="field">
+        <label for="comments">Cuéntanos más sobre tu necesidad</label>
+        <textarea id="comments" name="00Ng800000AnV05" rows="3" placeholder="Describe brevemente qué buscas o el ambiente que quieres renovar..."></textarea>
+      </div>
 
-            <input type="submit" name="submit" value="Enviar Datos" class="submit-btn">
+      <button type="submit" class="btn-submit">Enviar solicitud</button>
 
-        </form>
-    </div>
+    </div><!-- /form-card -->
+
+  </form>
+
+  <p class="form-footer">Tu información está protegida y no será compartida con terceros.</p>
+
+</div>
 
 </body>
 </html>
